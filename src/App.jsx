@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { initGoogleDrive, loadDriveData, saveDriveData } from "./drive";
+import { initGoogleDrive, loadDriveData, saveDriveData, syncData } from "./drive";
+
 // Daily Timetable App — Improved UI/UX
 // - Single-file React component
 // - Tailwind CSS utility classes used for styling
