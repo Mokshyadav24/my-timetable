@@ -2,10 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-/* optional small styles */
-html, body, #root {
-  height: 100%%;
-}
-body {
-  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-}
+html,body,#root { height:100%; }
+body { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background: #f8fafc; }
