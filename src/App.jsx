@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { initGoogleDrive, loadDriveData, saveDriveData } from "./drive";
 // Daily Timetable App — Improved UI/UX
 // - Single-file React component
 // - Tailwind CSS utility classes used for styling
@@ -22,24 +22,15 @@ function prettyDate(iso) {
   return d.toLocaleDateString(undefined, { day: "numeric", month: "short" });
 }
 
-function loadStorage() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw);
-  } catch (e) {
-    console.error("load error", e);
-    return null;
-  }
+async function loadStorage() {
+  await initGoogleDrive();
+  return await loadDriveData();
 }
 
-function saveStorage(obj) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
-  } catch (e) {
-    console.error("save error", e);
-  }
+async function saveStorage(obj) {
+  await saveDriveData(obj);
 }
+
 
 export default function TimetableApp() {
   const now = new Date();
